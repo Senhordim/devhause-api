@@ -7,7 +7,6 @@ class App {
     constructor(){
         this.server = express();
         mongoose.connect(`${process.env.DB_URL}${process.env.DB_NAME}`);
-        
         this.middlewares();
         this.routes();
     }
