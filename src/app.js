@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express';
 import mongoose from 'mongoose';
 import routes from './routes.js';
+import { requestLog } from './middlewares/log/RequstLog.js';
 
 class App {
     constructor(){
@@ -13,6 +14,7 @@ class App {
 
     middlewares(){
         this.server.use(express.json());
+        this.server.use(requestLog);
     }
 
     routes(){
