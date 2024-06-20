@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import path from 'path';
 import routes from './routes.js';
 import { fileURLToPath } from 'url';
@@ -19,6 +20,7 @@ class App {
     }
 
     middlewares(){
+				this.server.use(cors());
 				this.server.use('/api/v1', this.routes);
 				this.server.use(
 					'/files',

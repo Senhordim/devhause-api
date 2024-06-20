@@ -25,7 +25,11 @@ class HauseController{
 		return res.json(hause);
 	};
 
-	
+	async show(req, res){
+		const { id } = req.params;
+		const hause = await Hause.findById(id);
+		return res.json(hause);
+	};
 
 	async update(req, res){
 		const { id } = req.params;
